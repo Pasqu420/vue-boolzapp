@@ -16,6 +16,10 @@ body{
   display: flex;
 }
 
+ul{
+  list-style: none;
+}
+
 /* contacts */
 #contacts{
   width: 450px;
@@ -41,9 +45,6 @@ body{
   /*  */
   background-color: darkgreen;
 }
-.all-contacts ul{
-  list-style: none;
-}
 .all-contacts ul li{
   display: flex;
   align-items: center;
@@ -62,8 +63,37 @@ body{
 
 /* messages */
 #messages{
-  flex-grow: 1;
+  width: calc(100vw - 450px);
   height: 100%;
   /*  */
   background-color: lightgreen;
+}
+
+.sent,
+.received{
+  padding: 7px;
+  border-radius: 20px;
+}
+/* ricevuti */
+.received{
+  background-color: grey;
+  color:white;
+  margin-left: 15px;
+}
+/* inviati */
+.sent{
+  background-color: green;
+  color: white;
+  margin-right: 15px;
+}
+.right{
+  justify-content: flex-end;
+}
+/* contenitore messaggi */
+.message{
+  display: flex;
+  align-items:center;
+  height: 40px;
+  /*  */
+  border: 1px solid black
 }

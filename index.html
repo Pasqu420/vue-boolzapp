@@ -13,11 +13,11 @@
 
       <div id="contacts">
         <div class="logo">
-          <img :src="logo" alt="">
+          <img :src="logo" alt="immagine logo">
         </div>
         <div class="all-contacts">
           <ul>
-            <li v-for='contact in contacts'>
+            <li v-for='contact in contacts' @click='viewMsg(contact.messages)'>
               <div class="img-contact">
                 <img :src="contact.avatar" alt="immagine utente">
               </div>
@@ -28,7 +28,13 @@
       </div>
 
       <div id="messages">
+        <ul>
+          <li class="message" v-for='msg in msgsContact' :class='(msg.status == "sent") ? "right":""'>
 
+            <p :class="msg.status">{{msg.text}}</p>
+
+          </li>
+        </ul>
       </div>
 
     </div>

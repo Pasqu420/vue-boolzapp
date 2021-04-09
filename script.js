@@ -87,7 +87,18 @@ function initVue() {
                 }
             ],
         },
-    ]
+    ],
+    msgsContact:[]
+  },
+  methods:{
+    viewMsg : function (contact) {
+      this.msgsContact.splice(0);
+      for (var i = 0; i < contact.length; i++) {
+        const elemMsg = contact[i];
+        const {text,status} = elemMsg;
+        this.msgsContact.push({text,status})
+      }
+    }
   }
   });
 }
