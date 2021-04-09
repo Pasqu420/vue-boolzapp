@@ -1,0 +1,69 @@
+/* generali */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 12px;
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+  padding: 100px 250px;
+  display: flex;
+}
+
+/* contacts */
+#contacts{
+  width: 450px;
+  height: 100%;
+}
+.logo{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: green;
+  box-shadow: 1px 1px 20px 5px inset;
+  background-color: lightgreen;
+}
+.logo img{
+  width: 250px;
+  height: auto;
+}
+.all-contacts{
+  width: 100%;
+  height: calc(100% - 80px);
+  /*  */
+  background-color: darkgreen;
+}
+.all-contacts ul{
+  list-style: none;
+}
+.all-contacts ul li{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-left: 15px;
+  box-shadow: 5px 0px 3px;
+  font-size: 1.1rem;
+}
+.img-contact img{
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+/* messages */
+#messages{
+  flex-grow: 1;
+  height: 100%;
+  /*  */
+  background-color: lightgreen;
+}
