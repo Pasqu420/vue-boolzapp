@@ -20,6 +20,10 @@ ul{
   list-style: none;
 }
 
+i{
+  cursor: pointer;
+}
+
 /* contacts */
 #contacts{
   width: 450px;
@@ -30,20 +34,32 @@ ul{
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   color: green;
   box-shadow: 1px 1px 20px 5px inset;
   background-color: lightgreen;
 }
 .logo img{
-  width: 250px;
+  width: 200px;
   height: auto;
 }
 .all-contacts{
   width: 100%;
-  height: calc(100% - 80px);
+  height: calc(100% - 130px);
   /*  */
   background-color: darkgreen;
+}
+.search{
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.search i{
+  font-size: 2rem;
+  padding: 3px 20px;
+}
+.search input{
+  width: 70%;
 }
 .all-contacts ul li{
   display: flex;
@@ -53,6 +69,7 @@ ul{
   padding-left: 15px;
   box-shadow: 5px 0px 3px;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 .img-contact img{
   width: 30px;
@@ -65,6 +82,7 @@ ul{
 #messages{
   width: calc(100vw - 450px);
   height: 100%;
+  position: relative;
   /*  */
   background-color: lightgreen;
 }
@@ -96,4 +114,50 @@ ul{
   height: 40px;
   /*  */
   border: 1px solid black
+}
+
+/*input messaggio  */
+.write,
+.cont-input{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.write{
+  width: 100%;
+  justify-content: space-between;
+  position:absolute;
+  bottom:0;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  background-color: #ffff;
+  border-radius: 30px;
+}
+.cont-input{
+  flex-grow: 1;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.cont-input input{
+  width: 85%;
+  height: 35px;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  border-radius: 20px;
+}
+
+#clip{
+  font-size: 2rem;
+  margin-left: 50px;
+  transform: rotate(-45deg);
+}
+#mic{
+  font-size: 2rem;
+  padding-right: 50px;
+}
+.cont-input i{
+  font-size: 2rem;
+  padding: 0 20px;
+  transform: rotate(45deg);
 }

@@ -88,16 +88,44 @@ function initVue() {
             ],
         },
     ],
-    msgsContact:[]
+    viewMsgs:[],
+    newMsg:
+    {
+      text: '',
+      status: 'sent'
+    },
+    receivedMsg:
+    {
+      text: 'ok',
+      status: 'received'
+    },
+    search: '',
+    test:0
   },
   methods:{
-    viewMsg : function (contact) {
-      this.msgsContact.splice(0);
-      for (var i = 0; i < contact.length; i++) {
-        const elemMsg = contact[i];
+    viewMsg : function (contactMsg,ind) {
+      this.viewMsgs.splice(0);
+      for (var i = 0; i < contactMsg.length; i++) {
+        const elemMsg = contactMsg[i];
         const {text,status} = elemMsg;
-        this.msgsContact.push({text,status})
+        this.viewMsgs.push({text,status});
       }
+      this.test=ind;
+      console.log(this.test);
+    },
+    send: function () {
+      if (!this.newMsg.text == '') {
+        const {text,status} = this.newMsg;
+        this.contacts[this.test].messages.push({text,status});
+        this.viewMsgs.push({text,status});
+        this.newMsg.text = '';
+        setTimeout(this.received,1000);
+      }
+    },
+    received:function () {
+      const {text,status} = this.receivedMsg;
+      this.contacts[this.test].messages.push({text,status});
+      this.viewMsgs.push({text,status});
     }
   }
   });

@@ -15,9 +15,13 @@
         <div class="logo">
           <img :src="logo" alt="immagine logo">
         </div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" v-model='search'>
+        </div>
         <div class="all-contacts">
           <ul>
-            <li v-for='contact in contacts' @click='viewMsg(contact.messages)'>
+            <li v-for='(contact,ind) in contacts' @click='viewMsg(contact.messages,ind)'>
               <div class="img-contact">
                 <img :src="contact.avatar" alt="immagine utente">
               </div>
@@ -29,12 +33,20 @@
 
       <div id="messages">
         <ul>
-          <li class="message" v-for='msg in msgsContact' :class='(msg.status == "sent") ? "right":""'>
+          <li class="message" v-for='msg in viewMsgs' :class='(msg.status == "sent") ? "right":""'>
 
             <p :class="msg.status">{{msg.text}}</p>
 
           </li>
         </ul>
+        <div class="write">
+          <i id="clip" class="fas fa-paperclip"></i>
+          <div class="cont-input">
+            <input type="text" placeholder="Scrivi un messaggio..." v-model='newMsg.text' @keyup.13='send'>
+            <i id="send" class="fas fa-location-arrow" @click='send'> </i>
+          </div>
+          <i id="mic" class="fas fa-microphone"></i>
+        </div>
       </div>
 
     </div>
