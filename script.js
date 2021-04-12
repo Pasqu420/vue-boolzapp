@@ -99,7 +99,7 @@ function initVue() {
       text: 'ok',
       status: 'received'
     },
-    search: '',
+    searchName: '',
   },
   methods:{
     viewMsg : function (ind) {
@@ -110,12 +110,23 @@ function initVue() {
         const {text,status} = this.newMsg;
         this.contacts[this.indContact].messages.push({text,status});
         this.newMsg.text = '';
-        setTimeout(this.received,1000);
+        setTimeout(this.received,2000);
       }
     },
     received:function () {
       const {text,status} = this.receivedMsg;
       this.contacts[this.indContact].messages.push({text,status});
+    }
+  },
+  computed:{
+    searchContact: function () {
+      return this.contacts.filter((contact,ind) => {
+        const ctnName = contact.name.toLowerCase();
+        const inputSearch = this.searchName.toLowerCase();
+        this.indContact =ind;
+        return ctnName.match(inputSearch);
+        // bug da risolvere
+      });
     }
   }
   });

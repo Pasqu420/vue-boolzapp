@@ -86,8 +86,8 @@ i{
   position: relative;
   border-left: 1px solid black;
   overflow-y: scroll;
+  position: relative;
 }
-
 .sent,
 .received{
   padding: 7px;

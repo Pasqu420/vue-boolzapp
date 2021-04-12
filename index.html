@@ -17,11 +17,11 @@
         </div>
         <div class="search">
           <i class="fas fa-search"></i>
-          <input type="text" v-model='search' placeholder="Cerca contato...">
+          <input type="text" v-model='searchName' placeholder="Cerca contato...">
         </div>
         <div class="all-contacts">
-          <ul>
-            <li v-for='(contact,ind) in contacts' @click='viewMsg(ind)'>
+          <ul>                <!-- // bug da risolvere -->
+            <li v-for='(contact,ind) in searchContact ' @click='viewMsg(ind)'>
               <div class="img-contact">
                 <img :src="contact.avatar" alt="immagine utente">
               </div>
@@ -48,7 +48,6 @@
           <i id="mic" class="fas fa-microphone"></i>
         </div>
       </div>
-
     </div>
   </body>
 </html>
