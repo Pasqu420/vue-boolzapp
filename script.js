@@ -88,7 +88,7 @@ function initVue() {
             ],
         },
     ],
-    viewMsgs:[],
+    indContact:0,
     newMsg:
     {
       text: '',
@@ -100,32 +100,22 @@ function initVue() {
       status: 'received'
     },
     search: '',
-    test:0
   },
   methods:{
-    viewMsg : function (contactMsg,ind) {
-      this.viewMsgs.splice(0);
-      for (var i = 0; i < contactMsg.length; i++) {
-        const elemMsg = contactMsg[i];
-        const {text,status} = elemMsg;
-        this.viewMsgs.push({text,status});
-      }
-      this.test=ind;
-      console.log(this.test);
+    viewMsg : function (ind) {
+      this.indContact=ind;
     },
     send: function () {
       if (!this.newMsg.text == '') {
         const {text,status} = this.newMsg;
-        this.contacts[this.test].messages.push({text,status});
-        this.viewMsgs.push({text,status});
+        this.contacts[this.indContact].messages.push({text,status});
         this.newMsg.text = '';
         setTimeout(this.received,1000);
       }
     },
     received:function () {
       const {text,status} = this.receivedMsg;
-      this.contacts[this.test].messages.push({text,status});
-      this.viewMsgs.push({text,status});
+      this.contacts[this.indContact].messages.push({text,status});
     }
   }
   });

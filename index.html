@@ -17,11 +17,11 @@
         </div>
         <div class="search">
           <i class="fas fa-search"></i>
-          <input type="text" v-model='search'>
+          <input type="text" v-model='search' placeholder="Cerca contato...">
         </div>
         <div class="all-contacts">
           <ul>
-            <li v-for='(contact,ind) in contacts' @click='viewMsg(contact.messages,ind)'>
+            <li v-for='(contact,ind) in contacts' @click='viewMsg(ind)'>
               <div class="img-contact">
                 <img :src="contact.avatar" alt="immagine utente">
               </div>
@@ -33,7 +33,7 @@
 
       <div id="messages">
         <ul>
-          <li class="message" v-for='msg in viewMsgs' :class='(msg.status == "sent") ? "right":""'>
+          <li class="message" v-for='msg in contacts[indContact].messages' :class='(msg.status == "sent") ? "right":""'>
 
             <p :class="msg.status">{{msg.text}}</p>
 
