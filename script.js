@@ -88,7 +88,7 @@ function initVue() {
             ],
         },
     ],
-    indContact:0,
+    indContact:null,
     newMsg:
     {
       text: '',
@@ -102,8 +102,9 @@ function initVue() {
     searchName: '',
   },
   methods:{
-    viewMsg : function (ind) {
-      this.indContact=ind;
+    viewMsg : function (contact) {
+      const i = this.contacts.indexOf(contact);
+      this.indContact=i;
     },
     send: function () {
       if (!this.newMsg.text == '') {
@@ -121,11 +122,9 @@ function initVue() {
   computed:{
     searchContact: function () {
       return this.contacts.filter((contact,ind) => {
-        const ctnName = contact.name.toLowerCase();
+        const cntName = contact.name.toLowerCase();
         const inputSearch = this.searchName.toLowerCase();
-        this.indContact =ind;
-        return ctnName.match(inputSearch);
-        // bug da risolvere
+        return cntName.match(inputSearch);
       });
     }
   }

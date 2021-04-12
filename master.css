@@ -30,13 +30,15 @@ i{
 #contacts{
   width: 450px;
   height: 100%;
+  background-color: rgba(255, 230, 230,0.4);
 }
 .logo{
   width: 100%;
-  height: 80px;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: rgba(242, 242, 242, 1);
 }
 .logo img{
   width: 200px;
@@ -61,6 +63,7 @@ i{
 .search input{
   width: 70%;
   border: none;
+  background-color: rgba(255, 230, 230,0.4);
 }
 .all-contacts ul li{
   display: flex;
@@ -80,13 +83,49 @@ i{
 }
 
 /* messages */
+#messages img{
+  width: 50px;
+  height: auto;
+  margin: 0 20px;
+  border-radius: 100%;
+}
 #messages{
   width: calc(100vw - 450px);
   height: 100%;
   position: relative;
   border-left: 1px solid black;
-  overflow-y: scroll;
   position: relative;
+  background-image: url(img/chatBackground.png);
+}
+.headerMsg{
+  width: 100%;
+  height: 75.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+  background-color: rgba(242, 242, 242, 0.8);
+}
+.contact{
+  display: flex;
+  align-items: center;
+}
+.headerMsgIcons i{
+  margin: 0 15px;
+}
+.headerMsgIcons i:last-child{
+  margin-right: 35px;
+}
+.background-else{
+  background-image: url(img/sfondoWhatsApp.png);
+  width: 100%;
+}
+#messages ul{
+  width: 100%;
+  height: calc(100% - 125px);
+  overflow-y: scroll;
 }
 .sent,
 .received{
@@ -127,10 +166,9 @@ i{
   justify-content: space-between;
   position:absolute;
   bottom:0;
-  margin-bottom: 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: lightgrey;
+  background-color: rgba(242, 242, 242, 1);
 }
 .cont-input{
   flex-grow: 1;

@@ -14,14 +14,19 @@
       <div id="contacts">
         <div class="logo">
           <img :src="logo" alt="immagine logo">
+          <div class="header-left-icons">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
         </div>
         <div class="search">
           <i class="fas fa-search"></i>
           <input type="text" v-model='searchName' placeholder="Cerca contato...">
         </div>
         <div class="all-contacts">
-          <ul>                <!-- // bug da risolvere -->
-            <li v-for='(contact,ind) in searchContact ' @click='viewMsg(ind)'>
+          <ul>
+            <li v-for='(contact,ind) in searchContact' @click='viewMsg(contact)'>
               <div class="img-contact">
                 <img :src="contact.avatar" alt="immagine utente">
               </div>
@@ -31,7 +36,18 @@
         </div>
       </div>
 
-      <div id="messages">
+      <div id="messages" v-if='indContact !== null '>
+        <div class="headerMsg">
+          <div class="contact">
+            <img :src='contacts[indContact].avatar'>
+            <h3>{{contacts[indContact].name}}</h3>
+          </div>
+          <div class="headerMsgIcons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
         <ul>
           <li class="message" v-for='msg in contacts[indContact].messages' :class='(msg.status == "sent") ? "right":""'>
 
@@ -46,6 +62,11 @@
             <i id="send" class="fas fa-location-arrow" @click='send'> </i>
           </div>
           <i id="mic" class="fas fa-microphone"></i>
+        </div>
+      </div>
+      <div v-else class="background-else">
+        <div >
+
         </div>
       </div>
     </div>
