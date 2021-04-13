@@ -2,7 +2,7 @@ function initVue() {
   new Vue ({
     el:'#container',
     data:{
-      logo:'https://www.boolean.careers/images/misc/logo.png',
+      logo:'img/boolzapp.png',
       contacts: [
         {
             name: 'Michele',
@@ -109,14 +109,32 @@ function initVue() {
     send: function () {
       if (!this.newMsg.text == '') {
         const {text,status} = this.newMsg;
-        this.contacts[this.indContact].messages.push({text,status});
+        this.contacts[this.indContact].messages.push
+        ({date: this.getDate(),text,status});
         this.newMsg.text = '';
-        setTimeout(this.received,2000);
+        this.received();
       }
     },
     received:function () {
-      const {text,status} = this.receivedMsg;
-      this.contacts[this.indContact].messages.push({text,status});
+      const toReceived = this.indContact;
+      setTimeout(()=>{
+        const {text,status} = this.receivedMsg;
+        this.contacts[toReceived].messages.push
+        ({date: this.getDate(),text,status});
+      },2000);
+    },
+    viewMenu:function(){
+      const menu = this.$el.querySelector(".hover-menu");
+      menu.classList.remove('hide');
+    },
+    getDate:function () {
+      const date = new Date();
+      const dateStr = date.getDate() + '/'
+                    + date.getMonth() + '/'
+                    + date.getFullYear() + ' '
+                    + date.getHours() + ':'
+                    + date.getMinutes();
+      return dateStr;
     }
   },
   computed:{
@@ -127,6 +145,10 @@ function initVue() {
         return cntName.match(inputSearch);
       });
     }
+  },
+  updated() {
+    const container = this.$el.querySelector("#chat");
+    container.scrollTop = container.scrollHeight;
   }
   });
 }

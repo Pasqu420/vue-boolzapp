@@ -25,6 +25,15 @@ ul{
 i{
   cursor: pointer;
 }
+#messages p{
+  font-size: 1rem;
+}
+.date{
+  font-size: 0.7rem;
+}
+.fa-chevron-down{
+  color: darkgrey;
+}
 
 /* contacts */
 #contacts{
@@ -32,17 +41,31 @@ i{
   height: 100%;
   background-color: rgba(255, 230, 230,0.4);
 }
-.logo{
-  width: 100%;
-  height: 75px;
+.profile{
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.profile img{
+  width: 50px;
+  height: auto;
+  margin-left: 15px;
+  border-radius: 100%;
+}
+.profile h1{
+  margin-left: 10px;
+}
+.headerContact{
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: rgba(242, 242, 242, 1);
 }
-.logo img{
-  width: 200px;
-  height: auto;
+.header-left-icons i{
+  margin: 0 10px;
+  font-size: 1rem;
 }
 .all-contacts{
   width: 100%;
@@ -97,6 +120,8 @@ i{
   position: relative;
   background-image: url(img/chatBackground.png);
 }
+
+/* header messaggi */
 .headerMsg{
   width: 100%;
   height: 75.5px;
@@ -118,28 +143,81 @@ i{
 .headerMsgIcons i:last-child{
   margin-right: 35px;
 }
+/* se non ci sono messaggi */
 .background-else{
-  background-image: url(img/sfondoWhatsApp.png);
+  background: linear-gradient(0.10turn, #00FFFF, #008000, #00FFFF);
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid black;
 }
+.background-else .logo{
+  background-color: transparent;
+}
+.background-else .logo img{
+  width: 400px;
+  height: auto;
+}
+  /* messaggi */
 #messages ul{
   width: 100%;
-  height: calc(100% - 125px);
+  height: calc(100% - 150px);
+}
+/* scroll messaggi */
+#chat{
   overflow-y: scroll;
 }
+/* style messaggi */
 .sent,
 .received{
+  display: flex;
   padding: 7px;
-  border-radius: 20px;
+  border-radius: 10px;
+}
+#textSend,
+#textRecv{
+  max-width: 420px;
+  word-break: break-all;
+}
+
+.hover-menu{
+  width: 150px;
+  height: 110px;
+  color: black;
+}
+.hide{
+  display: none;
+}
+
+.info,
+.delete{
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5px;
+  background-color: #ffff;
+}
+.info{
+  border-bottom: 1px solid black;
 }
 /* ricevuti */
 .received{
+  flex-direction: column;
   background-color: grey;
   color:white;
   margin-left: 15px;
 }
+.received .fa-chevron-down{
+  margin-top: 10px;
+}
+.received .date{
+  align-self: flex-start;
+  margin-top: 8px;
+}
 /* inviati */
 .sent{
+  position: relative;
+  flex-direction: column;
   background-color: green;
   color: white;
   margin-right: 15px;
@@ -147,13 +225,21 @@ i{
 .right{
   justify-content: flex-end;
 }
+.sent .fa-chevron-down{
+  align-self: flex-end;
+  margin-top: 15px;
+}
+.sent .date{
+  align-self: flex-end;
+  margin-top: 8px;
+}
 /* contenitore messaggi */
 .message{
   display: flex;
   align-items:center;
-  height: 40px;
+  min-height: 40px;
+  margin: 20px 0;
 }
-
 /*input messaggio  */
 .write,
 .cont-input{
@@ -181,9 +267,9 @@ i{
   height: 35px;
   font-size: 1.2rem;
   padding-left: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
-
+/* icone input */
 #clip{
   font-size: 2rem;
   margin-left: 50px;

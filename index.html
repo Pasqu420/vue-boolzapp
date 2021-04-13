@@ -12,8 +12,11 @@
     <div id="container">
 
       <div id="contacts">
-        <div class="logo">
-          <img :src="logo" alt="immagine logo">
+        <div class="headerContact">
+          <div class="profile">
+            <img src="img/aquietplace.jpeg" alt="immagine logo">
+            <h1>Nome Profilo</h1>
+          </div>
           <div class="header-left-icons">
             <i class="fas fa-circle-notch"></i>
             <i class="fas fa-comment-alt"></i>
@@ -48,11 +51,20 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
-        <ul>
-          <li class="message" v-for='msg in contacts[indContact].messages' :class='(msg.status == "sent") ? "right":""'>
-
-            <p :class="msg.status">{{msg.text}}</p>
-
+        <ul id="chat">
+          <li class="message" v-for='(msg,ind) in contacts[indContact].messages' :class='(msg.status == "sent") ? "right":""'>
+            <div :class="msg.status" >
+              <p id="textSend">
+                {{msg.text}}
+              </p>
+              <i class="fa fa-chevron-down" @click='viewMenu'>
+                <ul class="hover-menu hide">
+                  <li class="info">info messaggio</li>
+                  <li class="delete">cancella messaggio</li>
+                </ul>
+              </i>
+              <span class="date">{{msg.date}}</span>
+            </div>
           </li>
         </ul>
         <div class="write">
@@ -65,8 +77,8 @@
         </div>
       </div>
       <div v-else class="background-else">
-        <div >
-
+        <div class="logo">
+          <img :src="logo" alt="immagine logo">
         </div>
       </div>
     </div>
