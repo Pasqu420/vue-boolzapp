@@ -15,7 +15,7 @@
         <div class="headerContact">
           <div class="profile">
             <img src="img/aquietplace.jpeg" alt="immagine logo">
-            <h1>Nome Profilo</h1>
+            <h1>{{myName}}</h1>
           </div>
           <div class="header-left-icons">
             <i class="fas fa-circle-notch"></i>
@@ -36,19 +36,27 @@
                 </div>
                 <p>{{contact.name}}</p>
               </div>
-              <div class="lastMsg">
-                {{lastMsg(contact)}}....
+              <div v-if='contact.messages.length > 0' class="lastMsg">
+                <p>{{lastMsg(contact)}}....</p>
+                <span>{{getLastDate(contact)}}</span>
+              </div>
+              <div v-else class="lastMsg">
+                <span>{{notMsg}}</span>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <div id="messages" v-if='indContact !== null '>
+      <div id="messages" v-if='indContact !== null'>
         <div class="headerMsg">
           <div class="contact">
             <img :src='contacts[indContact].avatar'>
-            <h3>{{contacts[indContact].name}}</h3>
+            <div>
+              <h3>{{contacts[indContact].name}}</h3>
+              <span class="online" v-if='contacts[indContact].visible'><i class="fas fa-circle"></i> <span>online</span> </span>
+              <span class="offline" v-else><i class="fas fa-circle"></i> <span>Offline</span> </span>
+            </div>
           </div>
           <div class="headerMsgIcons">
             <i class="fas fa-search"></i>

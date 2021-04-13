@@ -35,11 +35,39 @@ i{
   color: darkgrey;
 }
 
+/*background-color:rgba(242, 242, 242, 1);*/
+.headerContact,
+.search,
+.search input,
+.all-contacts,
+.write{
+  background-color:rgba(242, 242, 242, 1);
+}
+/* scroll */
+.all-contacts,
+#chat{
+  overflow-y: scroll;
+  overflow-y: scroll;
+}
+/* regole flex header left/right */
+.headerContact,
+.headerMsg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /* contacts */
 #contacts{
-  width: 450px;
+  min-width: 350px;
   height: 100%;
-  background-color: rgba(255, 230, 230,0.4);
+}
+.headerContact{
+  width: 100%;
+  height: 75px;
+}
+.header-left-icons i{
+  margin: 0 10px;
+  font-size: 1rem;
 }
 .profile{
   display: flex;
@@ -55,23 +83,6 @@ i{
 .profile h1{
   margin-left: 10px;
 }
-.headerContact{
-  width: 100%;
-  height: 75px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(242, 242, 242, 1);
-}
-.header-left-icons i{
-  margin: 0 10px;
-  font-size: 1rem;
-}
-.all-contacts{
-  width: 100%;
-  height: calc(100% - 130px);
-  overflow-y: scroll;
-}
 .search{
   height: 50px;
   display: flex;
@@ -86,7 +97,12 @@ i{
 .search input{
   width: 70%;
   border: none;
-  background-color: rgba(255, 230, 230,0.4);
+  background-color:rgba(242, 242, 242, 1);;
+}
+/* lista contatti */
+.all-contacts{
+  width: 100%;
+  height: calc(100% - 130px);
 }
 .all-contacts ul li{
   display: flex;
@@ -109,10 +125,16 @@ i{
   border-radius: 100%;
 }
 .lastMsg{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
   font-size: 0.8rem;
+  color:grey;
+  padding-right: 10px;
+}
+.lastMsg p{
   align-self: flex-end;
 }
-
 /* messages */
 #messages img{
   width: 50px;
@@ -121,7 +143,7 @@ i{
   border-radius: 100%;
 }
 #messages{
-  width: calc(100vw - 450px);
+  width: calc(100% - 350px);
   height: 100%;
   position: relative;
   border-left: 1px solid black;
@@ -133,9 +155,6 @@ i{
 .headerMsg{
   width: 100%;
   height: 75.5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 1.7rem;
   margin-bottom: 15px;
   border-bottom: 1px solid black;
@@ -150,6 +169,16 @@ i{
 }
 .headerMsgIcons i:last-child{
   margin-right: 35px;
+}
+.online,
+.offline{
+  font-size: 0.9rem;
+}
+.online i{
+  color:green;
+}
+.offline i{
+  color: grey;
 }
 /* se non ci sono messaggi */
 .background-else{
@@ -172,10 +201,6 @@ i{
   width: 100%;
   height: calc(100% - 150px);
 }
-/* scroll messaggi */
-#chat{
-  overflow-y: scroll;
-}
 /* style messaggi */
 .sent,
 .received{
@@ -195,6 +220,7 @@ i{
   color: black;
   position: absolute;
   top:50px;
+  z-index: 100;
 }
 .show.hover-menu{
   display: block ;
@@ -265,7 +291,6 @@ i{
   bottom:0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: rgba(242, 242, 242, 1);
 }
 .cont-input{
   flex-grow: 1;

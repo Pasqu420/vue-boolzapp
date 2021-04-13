@@ -3,6 +3,7 @@ function initVue() {
     el:'#container',
     data:{
       logo:'img/boolzapp.png',
+      myName:'Pasquale',
       contacts: [
         {
             name: 'Michele',
@@ -57,7 +58,7 @@ function initVue() {
         {
             name: 'Samuele',
             avatar: 'img/stranger.jpeg',
-            visible: true,
+            visible: false,
             messages: [
                 {
                     date: '28/03/2020 10:10:40',
@@ -100,6 +101,7 @@ function initVue() {
         },
     ],
     indContact:null,
+    notMsg: 'Non ci sono messaggi',
     newMsg:
     {
       text: '',
@@ -121,9 +123,11 @@ function initVue() {
       if (!this.newMsg.text == '') {
         const {text,status} = this.newMsg;
         this.contacts[this.indContact].messages.push
-        ({date: this.getDate(),text,status});
+        ({date: this.getDate(),text,status,menu:true});
         this.newMsg.text = '';
-        this.received();
+        if (this.contacts[this.indContact].visible) {
+          this.received();
+        }
       }
     },
     received:function () {
@@ -131,12 +135,11 @@ function initVue() {
       setTimeout(()=>{
         const {text,status} = this.receivedMsg;
         this.contacts[toReceived].messages.push
-        ({date: this.getDate(),text,status});
+        ({date: this.getDate(),text,status,menu:true});
       },2000);
     },
     viewMenu:function(msg){
       msg.menu = !msg.menu;
-      console.log(msg.menu);
     },
     deleteMsg: function functionName(ind) {
       this.contacts[this.indContact].messages.splice(ind,1);
@@ -150,8 +153,11 @@ function initVue() {
                     + date.getMinutes();
       return dateStr;
     },
+    getLastDate:function (contact) {
+      return contact.messages
+      [contact.messages.length -1].date;
+    },
     lastMsg: function (contact) {
-      console.log(contact);
       return contact.messages
       [contact.messages.length -1].text.slice(0,10);
     }
