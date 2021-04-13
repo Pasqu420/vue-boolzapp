@@ -182,18 +182,18 @@ i{
 }
 
 .hover-menu{
-  width: 150px;
-  height: 110px;
+  width: 100px;
+  height: 70px;
   color: black;
 }
 .hide{
-  display: none;
+  display: none
 }
 
 .info,
 .delete{
-  height: 50px;
-  line-height: 50px;
+  height: 35px;
+  line-height: 35px;
   padding-left: 5px;
   background-color: #ffff;
 }

@@ -57,12 +57,11 @@
               <p id="textSend">
                 {{msg.text}}
               </p>
-              <i class="fa fa-chevron-down" @click='viewMenu'>
-                <ul class="hover-menu hide">
-                  <li class="info">info messaggio</li>
-                  <li class="delete">cancella messaggio</li>
-                </ul>
-              </i>
+              <i class="fa fa-chevron-down" @click='viewMenu()'></i>
+              <ul v-if='msg.status==="sent"' class="hover-menu" :class='(menu==true) ? "hide":""'>
+                <li class="info">info messaggio</li>
+                <li class="delete" @click='deleteMsg(msg,ind)'>cancella messaggio</li>
+              </ul>
               <span class="date">{{msg.date}}</span>
             </div>
           </li>

@@ -100,6 +100,7 @@ function initVue() {
       status: 'received'
     },
     searchName: '',
+    menu: true,
   },
   methods:{
     viewMsg : function (contact) {
@@ -124,8 +125,13 @@ function initVue() {
       },2000);
     },
     viewMenu:function(){
-      const menu = this.$el.querySelector(".hover-menu");
-      menu.classList.remove('hide');
+      const indElem = this.contacts[this.indContact];
+      if (this.menu == this.menu) {
+        this.menu = !this.menu;
+      }
+    },
+    deleteMsg: function functionName(msg,ind) {
+      this.contacts[this.indContact].messages.splice(ind,1);
     },
     getDate:function () {
       const date = new Date();
