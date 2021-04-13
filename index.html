@@ -30,10 +30,15 @@
         <div class="all-contacts">
           <ul>
             <li v-for='(contact,ind) in searchContact' @click='viewMsg(contact)'>
-              <div class="img-contact">
-                <img :src="contact.avatar" alt="immagine utente">
+              <div class="contactName">
+                <div class="img-contact">
+                  <img :src="contact.avatar" alt="immagine utente">
+                </div>
+                <p>{{contact.name}}</p>
               </div>
-              {{contact.name}}
+              <div class="lastMsg">
+                {{lastMsg(contact)}}....
+              </div>
             </li>
           </ul>
         </div>
@@ -57,10 +62,10 @@
               <p id="textSend">
                 {{msg.text}}
               </p>
-              <i class="fa fa-chevron-down" @click='viewMenu()'></i>
-              <ul v-if='msg.status==="sent"' class="hover-menu" :class='(menu==true) ? "hide":""'>
+              <i class="fa fa-chevron-down" @click="viewMenu(msg)"></i>
+              <ul :class='(msg.menu)?"":"show"' class="hover-menu" >
                 <li class="info">info messaggio</li>
-                <li class="delete" @click='deleteMsg(msg,ind)'>cancella messaggio</li>
+                <li class="delete" @click='deleteMsg(ind)'>cancella messaggio</li>
               </ul>
               <span class="date">{{msg.date}}</span>
             </div>

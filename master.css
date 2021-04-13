@@ -90,7 +90,7 @@ i{
 }
 .all-contacts ul li{
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   padding-left: 15px;
@@ -98,11 +98,19 @@ i{
   border-bottom: 1px solid black;
   cursor: pointer;
 }
+.contactName{
+  display: flex;
+  align-items: center;
+}
 .img-contact img{
   width: 30px;
   height: auto;
   margin-right: 10px;
   border-radius: 100%;
+}
+.lastMsg{
+  font-size: 0.8rem;
+  align-self: flex-end;
 }
 
 /* messages */
@@ -182,16 +190,18 @@ i{
 }
 
 .hover-menu{
-  width: 100px;
+  display: none;
   height: 70px;
   color: black;
+  position: absolute;
+  top:50px;
 }
-.hide{
-  display: none
+.show.hover-menu{
+  display: block ;
 }
-
 .info,
 .delete{
+  width: 100px;
   height: 35px;
   line-height: 35px;
   padding-left: 5px;
@@ -202,6 +212,7 @@ i{
 }
 /* ricevuti */
 .received{
+  position: relative;
   flex-direction: column;
   background-color: grey;
   color:white;
