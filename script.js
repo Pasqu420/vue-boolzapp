@@ -123,7 +123,7 @@ function initVue() {
       if (!this.newMsg.text == '') {
         const {text,status} = this.newMsg;
         this.contacts[this.indContact].messages.push
-        ({date: this.getDate(),text,status,menu:true});
+          ({date: this.getDate(),text,status,menu:true});
         this.newMsg.text = '';
         if (this.contacts[this.indContact].visible) {
           this.received();
@@ -135,7 +135,7 @@ function initVue() {
       setTimeout(()=>{
         const {text,status} = this.receivedMsg;
         this.contacts[toReceived].messages.push
-        ({date: this.getDate(),text,status,menu:true});
+          ({date: this.getDate(),text,status,menu:true});
       },2000);
     },
     viewMenu:function(msg){
