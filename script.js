@@ -141,7 +141,7 @@ function initVue() {
     viewMenu:function(msg){
       msg.menu = !msg.menu;
     },
-    deleteMsg: function functionName(ind) {
+    deleteMsg: function (ind) {
       this.contacts[this.indContact].messages.splice(ind,1);
     },
     getDate:function () {
@@ -164,7 +164,7 @@ function initVue() {
   },
   computed:{
     searchContact: function () {
-      return this.contacts.filter((contact,ind) => {
+      return this.contacts.filter(contact => {
         const cntName = contact.name.toLowerCase();
         const inputSearch = this.searchName.toLowerCase();
         return cntName.match(inputSearch);
