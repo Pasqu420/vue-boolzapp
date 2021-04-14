@@ -172,8 +172,9 @@ function initVue() {
     }
   },
   updated() {
-    const container = this.$el.querySelector("#chat");
-    if (container == !null) {
+    const control = this.$el.querySelector("#chat") !== null;
+    if (control) {
+      const container = this.$el.querySelector("#chat");
       container.scrollTop = container.scrollHeight;
     }
   }
